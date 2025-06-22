@@ -1,103 +1,136 @@
-import Image from "next/image";
+'use client'
+
+import Image from "next/image"
+import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
+import { FaGithub, FaLinkedin } from "react-icons/fa"
+import freshbooks from './icons/freshbooks.png'
+import oriole from './icons/oriole.jpg'
+import ExperienceCard from "./components/card"
+
+const experiences = [
+  {
+    company: "Oriole AI Inc.",
+    date: "May 2023 – Aug 2023",
+    role: "SWE Intern (Mobile)",
+    logo: oriole.src,
+  },
+  {
+    company: "FreshBooks",
+    date: "Jan 2024 – Aug 2024",
+    role: "SWE Intern (Mobile)",
+    logo: freshbooks.src,
+  },
+  {
+    company: "FreshBooks",
+    date: "Aug 2024 – Dec 2024",
+    role: "SWE Intern (Full-Stack)",
+    logo: freshbooks.src,
+  },
+]
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const fullText = "Hello, nice to meet you! 👋"
+  const [typed, setTyped] = useState("")
+  const [showContent, setShowContent] = useState(false)
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+  useEffect(() => {
+    let idx = 0
+    const handle = setInterval(() => {
+      if (idx < fullText.length) {
+        setTyped((t) => t + fullText[idx])
+        idx++
+      } else {
+        clearInterval(handle)
+        setTimeout(() => setShowContent(true), 300)
+      }
+    }, 100)
+    return () => clearInterval(handle)
+  }, [])
+
+  return (
+    <div className="min-h-screen bg-black text-white px-8 py-12 sm:px-20 sm:py-20 flex flex-col items-center">
+      {/* typing intro */}
+      <div className="w-full max-w-3xl">
+        <h1 className="font-bold text-4xl sm:text-5xl mb-2">
+          {typed}
+          <span className="inline-block w-1 h-8 bg-white ml-1 animate-[blink_1s_steps(1)_infinite]" />
+        </h1>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={showContent ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6 }}
+        className="w-full max-w-3xl flex flex-col gap-16 mt-8"
+      >
+        {/* intro & links */}
+        <section className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          <div>
+            <p className="text-lg">
+              My name is <strong>Uzair Rafi</strong>, a 5th year at the University of Guelph. 
+              I’ll be graduating in April 2026.
+            </p>
+            <p className="mt-2 text-sm opacity-75">
+              Currently pursuing:
+              <br />
+              – Fall 2025 Co-ops/Internships
+              <br />
+              – FT Roles
+            </p>
+          </div>
+          <div className="flex items-center gap-4">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-white px-5 py-2 rounded-md uppercase text-sm font-medium hover:bg-white/10 transition"
+            >
+              My Resume
+            </a>
+            <a
+              href="https://github.com/uzrafi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl hover:text-gray-400 transition"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://linkedin.com/in/uzairrafi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl hover:text-gray-400 transition"
+            >
+              <FaLinkedin />
+            </a>
+          </div>
+        </section>
+
+        {/* timeline */}
+       
+          <ExperienceCard experiences={experiences}></ExperienceCard>
+  
+
+        {/* contact */}
+        <section className="text-center mar">
+          <p className="mb-4 text-lg">Let’s get in touch!</p>
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:uzairrafi159@gmail.com"
+            className="inline-block border border-white px-6 py-3 rounded-md font-medium hover:bg-white/10 transition"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            Contact My Email
           </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </section>
+      </motion.div>
+
+      <style jsx>{`
+        @keyframes blink {
+          50% {
+            opacity: 0;
+          }
+        }
+      `}</style>
     </div>
-  );
+  )
 }
