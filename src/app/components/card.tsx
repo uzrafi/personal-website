@@ -25,7 +25,7 @@ const ExperienceCard = ({ experiences }: Props) => {
           <div className="relative flex justify-between items-center">
             {experiences.map((exp, idx) => (
               <div
-                key={exp.company}
+                key={`${exp.company}-${exp.date}`}
                 className={`
                   flex flex-col items-center gap-4
                   ${idx % 2 === 0 ? 'translate-y-[-2rem]' : 'translate-y-[2rem]'}
@@ -66,7 +66,7 @@ const ExperienceCard = ({ experiences }: Props) => {
         {/* vertical line */}
           <div className="absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 w-px bg-gray-600" />
           {experiences.map((exp) => (
-            <div key={exp.company} className="flex items-start gap-4">
+            <div key={`${exp.company}-${exp.date}`} className="flex items-start gap-4">
               {/* content */}
               <Tilt
                   className="w-full max-w-4xl mx-auto"
