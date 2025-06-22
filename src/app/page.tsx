@@ -23,7 +23,7 @@ const experiences = [
   },
   {
     company: "FreshBooks",
-    date: "Aug 2024 – Dec 2024",
+    date: "Sept 2024 – Dec 2024",
     role: "SWE Intern (Full-Stack)",
     logo: freshbooks.src,
   },
@@ -107,10 +107,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* timeline */}
-       
+        <div>
+          <p>
+            My previous work experience were...
+          </p>
           <ExperienceCard experiences={experiences}></ExperienceCard>
-  
+        </div>  
 
         {/* contact */}
         <section className="text-center mar">

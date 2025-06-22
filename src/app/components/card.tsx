@@ -42,28 +42,29 @@ const ExperienceCard = ({ experiences }: Props) => {
                   tiltMaxAngleY={4}
                   transitionSpeed={250}
                 >
-                <div className="bg-gray-900 border border-white rounded-lg p-4 w-48 text-center">
-                  <Image
-                    src={exp.logo}
-                    alt={`${exp.company} logo`}
-                    width={48}
-                    height={48}
-                    className="mx-auto"
-                  />
-                  <p className="font-semibold mt-2">{exp.company}</p>
-                  <p className="text-sm opacity-75">{exp.date}</p>
-                  <p className="mt-1 text-sm">{exp.role}</p>
-                </div>
+                <div className="bg-gray-900 border border-white rounded-lg p-4 w-52 text-center min-h-[200px] flex flex-col justify-start">
+                    <Image
+                      src={exp.logo}
+                      alt={`${exp.company} logo`}
+                      width={48}
+                      height={48}
+                      className="mx-auto"
+                    />
+                    <p className="font-semibold mt-2 whitespace-nowrap">{exp.company}</p>
+                    <p className="text-sm opacity-75 mt-1">{exp.date}</p>
+                    <p className="text-sm mt-3">SWE Intern</p>
+                    <p className="text-xs text-gray-400">{exp.role.replace("SWE Intern ", "")}</p>
+                  </div>
                 </Tilt>
               </div>
             ))}
           </div>
         </div>
 
-        {/* MOBILE: vertical stacked */}
-        <div className="flex flex-col sm:hidden gap-8">
-           {/* vertical line */}
-          <div className="absolute left-3 top-0 bottom-0 w-px bg-gray-600" />
+      {/* mobile view */}
+       <div className="relative flex flex-col sm:hidden items-center gap-8">
+        {/* vertical line */}
+          <div className="absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 w-px bg-gray-600" />
           {experiences.map((exp) => (
             <div key={exp.company} className="flex items-start gap-4">
               {/* content */}
@@ -77,7 +78,7 @@ const ExperienceCard = ({ experiences }: Props) => {
                   tiltMaxAngleY={4}
                   transitionSpeed={250}
                 >
-              <div className="bg-gray-900 border border-white rounded-lg p-4 flex-1">
+              <div className="bg-gray-900 border border-white rounded-lg p-4 w-64 text-left flex flex-col items-start min-h-[160px]">
                 <div className="flex items-center gap-3">
                   <Image
                     src={exp.logo}
@@ -86,11 +87,15 @@ const ExperienceCard = ({ experiences }: Props) => {
                     height={32}
                   />
                   <div>
-                    <p className="font-semibold">{exp.company}</p>
-                    <p className="text-xs opacity-75">{exp.date}</p>
-                    <p className="text-xs">{exp.role}</p>
+                    <p className="font-semibold whitespace-nowrap">{exp.company}</p>
+                    <p className="text-xs opacity-75 mt-1">{exp.date}</p>
                   </div>
                 </div>
+                <div className="mt-3 w-full flex flex-col items-center text-center">
+                  <p className="text-sm mt-3 text">SWE Intern</p>
+                  <p className="text-xs text-gray-400">{exp.role.replace("SWE Intern ", "")}</p>
+                </div>
+                
               </div>
               </Tilt>
             </div>
