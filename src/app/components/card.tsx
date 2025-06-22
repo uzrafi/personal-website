@@ -18,7 +18,7 @@ const ExperienceCard = ({ experiences }: Props) => {
   return (
       <div>
         {/* DESKTOP: horizontal alternating */}
-        <div className="hidden sm:block relative py-16">
+        <div className="hidden lg:block relative py-16">
           {/* line across the middle */}
           <div className="absolute inset-x-0 top-1/2 h-px bg-gray-600" />
 
@@ -62,7 +62,7 @@ const ExperienceCard = ({ experiences }: Props) => {
         </div>
 
       {/* mobile view */}
-       <div className="relative flex flex-col sm:hidden items-center gap-8">
+       <div className="relative flex flex-col lg:hidden items-center gap-8">
         {/* vertical line */}
           <div className="absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 w-px bg-gray-600" />
           {experiences.map((exp) => (
