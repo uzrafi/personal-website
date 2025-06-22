@@ -16,11 +16,11 @@ type Props = {
 
 const ExperienceCard = ({ experiences }: Props) => {
   return (
-      
+      <div>
         {/* DESKTOP: horizontal alternating */}
         <div className="hidden sm:block relative py-16">
           {/* line across the middle */}
-          <div className="absolute inset-x-0 top-1/2 h-px bg-gray-700" />
+          <div className="absolute inset-x-0 top-1/2 h-px bg-gray-600" />
 
           <div className="relative flex justify-between items-center">
             {experiences.map((exp, idx) => (
@@ -55,8 +55,6 @@ const ExperienceCard = ({ experiences }: Props) => {
                   <p className="mt-1 text-sm">{exp.role}</p>
                 </div>
                 </Tilt>
-                {/* the dot */}
-                <div className="w-4 h-4 bg-white rounded-full" />
               </div>
             ))}
           </div>
@@ -64,11 +62,21 @@ const ExperienceCard = ({ experiences }: Props) => {
 
         {/* MOBILE: vertical stacked */}
         <div className="flex flex-col sm:hidden gap-8">
+           {/* vertical line */}
+          <div className="absolute left-3 top-0 bottom-0 w-px bg-gray-600" />
           {experiences.map((exp) => (
             <div key={exp.company} className="flex items-start gap-4">
-              {/* dot */}
-              <div className="w-2 h-2 bg-white rounded-full mt-2" />
               {/* content */}
+              <Tilt
+                  className="w-full max-w-4xl mx-auto"
+                  glareEnable
+                  glareMaxOpacity={0.15}
+                  glareColor="#ffffff"
+                  glarePosition="all"
+                  tiltMaxAngleX={4}
+                  tiltMaxAngleY={4}
+                  transitionSpeed={250}
+                >
               <div className="bg-gray-900 border border-white rounded-lg p-4 flex-1">
                 <div className="flex items-center gap-3">
                   <Image
@@ -84,9 +92,11 @@ const ExperienceCard = ({ experiences }: Props) => {
                   </div>
                 </div>
               </div>
+              </Tilt>
             </div>
           ))}
         </div>
+      </div>
   )
 }
 
