@@ -30,23 +30,24 @@ const experiences = [
 ]
 
 export default function Home() {
-  const fullText = "Hello, nice to meet you! 👋"
+  const fullText = "  Hello, nice to meet you!👋"
   const [typed, setTyped] = useState("")
   const [showContent, setShowContent] = useState(false)
 
   useEffect(() => {
-    let idx = 0
-    const handle = setInterval(() => {
-      if (idx < fullText.length) {
-        setTyped((t) => t + fullText[idx])
-        idx++
-      } else {
-        clearInterval(handle)
-        setTimeout(() => setShowContent(true), 300)
-      }
-    }, 100)
-    return () => clearInterval(handle)
-  }, [])
+  let idx = 0
+  const handle = setInterval(() => {
+    if (idx < fullText.length) {
+      setTyped((t) => t + fullText.charAt(idx)) 
+      idx++                                     
+    } else {
+      clearInterval(handle)
+      setTimeout(() => setShowContent(true), 300)
+    }
+  }, 100)
+  return () => clearInterval(handle)
+}, [])
+
 
   return (
     <div className="min-h-screen bg-black text-white px-8 py-12 sm:px-20 sm:py-20 flex flex-col items-center">
@@ -65,10 +66,10 @@ export default function Home() {
         className="w-full max-w-3xl flex flex-col gap-16 mt-8"
       >
         {/* intro & links */}
-        <section className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <section className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8 pr-10">
           <div>
             <p className="text-lg">
-              My name is <strong>Uzair Rafi</strong>, a 5th year at the University of Guelph. 
+              My name is <strong>Uzair Rafi</strong>, a 5th year student at the University of Guelph. 
               I’ll be graduating in April 2026.
             </p>
             <p className="mt-2 text-sm opacity-75">
@@ -79,12 +80,12 @@ export default function Home() {
               – FT Roles
             </p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6 pl-12">
             <a
-              href="/resume.pdf"
+              href="https://drive.google.com/file/d/1ndNAijQLR9Li_zYafeCASnIr3xgD7AeK/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-white px-5 py-2 rounded-md uppercase text-sm font-medium hover:bg-white/10 transition"
+              className="border border-white px-5 py-2 rounded-md text-sm font-medium w-30 hover:bg-white/10 transition"
             >
               My Resume
             </a>
@@ -107,12 +108,12 @@ export default function Home() {
           </div>
         </section>
 
-        <div>
-          <p>
-            My previous work experience were...
-          </p>
-          <ExperienceCard experiences={experiences}></ExperienceCard>
-        </div>  
+        <div className="flex flex-col gap-6">
+        <p className="text-base font-semibold">
+          My previous work experiences include...
+        </p>
+        <ExperienceCard experiences={experiences}></ExperienceCard>
+      </div>
 
         {/* contact */}
         <section className="text-center mar">
