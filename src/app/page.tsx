@@ -107,7 +107,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col ">
         <p className="text-base font-semibold">
           My previous work experiences include...
         </p>
