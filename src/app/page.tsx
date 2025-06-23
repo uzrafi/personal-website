@@ -49,7 +49,7 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen bg-black text-white px-8 py-12 sm:px-20 sm:py-20 flex flex-col items-center">
+    <div className="min-h-screen text-white px-8 py-12 sm:px-20 sm:py-20 flex flex-col items-center">
       {/* typing intro */}
       <div className="w-full max-w-3xl">
         <h1 className="font-bold text-4xl sm:text-5xl mb-2">
