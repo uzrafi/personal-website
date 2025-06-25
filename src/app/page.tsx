@@ -81,7 +81,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-6 pl-12">
             <a
-              href="https://drive.google.com/file/d/1ndNAijQLR9Li_zYafeCASnIr3xgD7AeK/view?usp=sharing"
+              href="https://drive.google.com/file/d/13OOPFbS5T0NJG7286KBqMXLe0v1wp6oc/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-white px-5 py-2 rounded-md text-sm font-medium w-30 hover:bg-white/10 transition"
