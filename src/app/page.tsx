@@ -74,7 +74,7 @@ export default function Home() {
             <p className="mt-2 text-sm opacity-75">
               Currently pursuing:
               <br />
-              – Fall 2025 Co-ops/Internships
+              – Winter & Summer 2026 Co-ops/Internships
               <br />
               – FT Roles
             </p>
