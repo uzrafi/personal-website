@@ -49,8 +49,8 @@ const ExperienceCard = ({ experiences }: Props) => {
             />
             <p className="font-semibold mt-2 whitespace-nowrap">{exp.company}</p>
             <p className="text-sm opacity-75 mt-1">{exp.date}</p>
-            <p className="text-sm mt-3">SWE Intern</p>
-            <p className="text-xs text-gray-400">{exp.role.replace("SWE Intern ", "")}</p>
+            <p className="text-sm mt-3">Software Engineer</p>
+            <p className="text-xs text-gray-400">{exp.role.replace("SWE ", "")}</p>
           </div>
         </Tilt>
 
@@ -95,8 +95,8 @@ const ExperienceCard = ({ experiences }: Props) => {
               </div>
             </div>
             <div className="mt-3 w-full flex flex-col items-center text-center">
-              <p className="text-sm mt-3">SWE Intern</p>
-              <p className="text-xs text-gray-400">{exp.role.replace("SWE Intern ", "")}</p>
+              <p className="text-sm mt-3">Software Engineer</p>
+              <p className="text-xs text-gray-400">{exp.role.replace("SWE ", "")}</p>
             </div>
           </div>
         </Tilt>

@@ -10,20 +10,20 @@ import ExperienceCard from "./components/card"
 const experiences = [
   {
     company: "Oriole AI Inc.",
-    date: "May 2023 – Aug 2023",
-    role: "SWE Intern (Mobile)",
+    date: "Jan 2023 – Aug 2023",
+    role: "SWE (Mobile)",
     logo: oriole.src,
   },
   {
     company: "FreshBooks",
     date: "Jan 2024 – Aug 2024",
-    role: "SWE Intern (Mobile)",
+    role: "SWE (Mobile)",
     logo: freshbooks.src,
   },
   {
     company: "FreshBooks",
     date: "Sept 2024 – Dec 2024",
-    role: "SWE Intern (Full-Stack)",
+    role: "SWE (Full-Stack)",
     logo: freshbooks.src,
   },
 ]
@@ -68,20 +68,23 @@ export default function Home() {
         <section className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8 pr-10">
           <div>
             <p className="text-lg">
-              My name is <strong>Uzair Rafi</strong>, a 5th year student at the University of Guelph. 
-              I’ll be graduating in April 2026.
+              My name is <strong>Uzair Rafi</strong>, a new grad software engineer based in Toronto, Canada. 
+              I’m passionate about building impactful mobile applications and learning new technologies.
+            </p>
+             <p className="mt-2 text-sm opacity-75">
+              Education:
+              <br />
+              – Bachelors of Computing, University of Guelph
             </p>
             <p className="mt-2 text-sm opacity-75">
               Currently pursuing:
-              <br />
-              – Winter & Summer 2026 Co-ops/Internships
               <br />
               – FT Roles
             </p>
           </div>
           <div className="flex items-center gap-6 pl-12">
             <a
-              href="https://drive.google.com/file/d/13OOPFbS5T0NJG7286KBqMXLe0v1wp6oc/view?usp=sharing"
+              href="https://drive.google.com/file/d/1Jyrj4dRUgCIXmCFzBuUwDk4TUnhXFpEU/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-white px-5 py-2 rounded-md text-sm font-medium w-30 hover:bg-white/10 transition"
